@@ -41,3 +41,8 @@ jobs:
         with:
           heroku_app_name: your-app-name
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+
+      - name: Run SonarQube analysis
+        run: mvn sonar:sonar
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Убедитесь, что вы добавили токен в Secrets
